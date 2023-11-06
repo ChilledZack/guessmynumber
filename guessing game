@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Number Guessing Game</title>
+</head>
+<body>
+<h1>Number Guessing Game</h1>
+<p>Think of a number between 1 and 100, and I will guess it!</p>
+<button onclick="startGuessing()">Start Game</button>
+<script>
+       let min = 1;
+       let max = 100;
+       let guess;
+       function startGuessing() {
+           guess = Math.floor((min + max) / 2);
+           let response = prompt(`Is your number ${guess}? Type 'higher', 'lower', or 'correct' to let me know.`);
+           if (response === 'correct') {
+               alert('I guessed your number! Thanks for playing!');
+           } else if (response === 'higher') {
+               min = guess + 1;
+               startGuessing();
+           } else if (response === 'lower') {
+               max = guess - 1;
+               startGuessing();
+           } else {
+               alert("Please enter 'higher', 'lower', or 'correct' as your response.");
+               startGuessing();
+           }
+       }
+</script>
+</body>
+</html>
